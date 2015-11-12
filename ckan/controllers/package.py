@@ -341,7 +341,7 @@ class PackageController(base.BaseController):
         except NotFound:
             abort(404, _('Dataset not found'))
         except NotAuthorized:
-            abort(401, _('Unauthorized to read package %s') % id)
+            abort(401, _('Unauthorized to read package1 %s') % id)
 
         package_type = c.pkg_dict['type'] or 'dataset'
         self._setup_template_variables(context, {'id': id},
@@ -394,7 +394,7 @@ class PackageController(base.BaseController):
         except NotFound:
             abort(404, _('Dataset not found'))
         except NotAuthorized:
-            abort(401, _('Unauthorized to read package %s') % id)
+            abort(401, _('Unauthorized to read package2 %s') % id)
 
         # used by disqus plugin
         c.current_package_id = c.pkg.id
@@ -458,7 +458,7 @@ class PackageController(base.BaseController):
             c.pkg = context['package']
 
         except NotAuthorized:
-            abort(401, _('Unauthorized to read package %s') % '')
+            abort(401, _('Unauthorized to read package3 %s') % '')
         except NotFound:
             abort(404, _('Dataset not found'))
 
@@ -792,7 +792,7 @@ class PackageController(base.BaseController):
                 old_data.update(data)
             data = old_data
         except NotAuthorized:
-            abort(401, _('Unauthorized to read package %s') % '')
+            abort(401, _('Unauthorized to read package4 %s') % '')
         except NotFound:
             abort(404, _('Dataset not found'))
         # are we doing a multiphase add?
@@ -851,7 +851,7 @@ class PackageController(base.BaseController):
         try:
             data = get_action('package_show')(context, {'id': id})
         except NotAuthorized:
-            abort(401, _('Unauthorized to read package %s') % '')
+            abort(401, _('Unauthorized to read package5 %s') % '')
         except NotFound:
             abort(404, _('Dataset not found'))
 
@@ -869,7 +869,7 @@ class PackageController(base.BaseController):
             pkg_revisions = get_action('package_revision_list')(
                 context, data_dict)
         except NotAuthorized:
-            abort(401, _('Unauthorized to read package %s') % '')
+            abort(401, _('Unauthorized to read package6 %s') % '')
         except NotFound:
             abort(404, _('Dataset not found'))
 
@@ -970,7 +970,7 @@ class PackageController(base.BaseController):
             self._form_save_redirect(pkg_dict['name'], 'new',
                                      package_type=package_type)
         except NotAuthorized:
-            abort(401, _('Unauthorized to read package %s') % '')
+            abort(401, _('Unauthorized to read package7 %s') % '')
         except NotFound, e:
             abort(404, _('Dataset not found'))
         except dict_fns.DataError:
@@ -1018,7 +1018,7 @@ class PackageController(base.BaseController):
             self._form_save_redirect(pkg['name'], 'edit',
                                      package_type=package_type)
         except NotAuthorized:
-            abort(401, _('Unauthorized to read package %s') % id)
+            abort(401, _('Unauthorized to read package8 %s') % id)
         except NotFound, e:
             abort(404, _('Dataset not found'))
         except dict_fns.DataError:
@@ -1271,7 +1271,7 @@ class PackageController(base.BaseController):
         except NotFound:
             abort(404, _('Dataset not found'))
         except NotAuthorized:
-            abort(401, _('Unauthorized to read package %s') % id)
+            abort(401, _('Unauthorized to read package9 %s') % id)
 
         return render('package/followers.html',
                       {'dataset_type': dataset_type})
